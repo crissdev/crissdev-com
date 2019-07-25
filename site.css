@@ -1,0 +1,276 @@
+:root {
+  box-sizing: border-box;
+  color: #222222;
+  background-color: #f2f2f2;
+  font: normal normal normal 18px/150% 'Alegreya Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration-line: none;
+  color: rgb(160, 20, 20);
+}
+
+a:hover {
+  color: rgb(112, 16, 16);
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+}
+
+/* Component: Chip List*/
+
+.chip-list {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.chip-list > * {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-color: #ececec;
+  border: solid 1px #d3d3d3;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-variant: small-caps;
+  font-size: 14px;
+}
+
+/* Content */
+.main-content {
+  max-width: 50em;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+/* Site header */
+.site-header {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  padding: 0.8rem 0;
+  margin-bottom: 1.5rem;
+
+  background-color: #1976d2;
+  color: white;
+
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 0px;
+}
+
+.site-header .content {
+  flex: 0 1 50em;
+  text-align: left;
+  padding: 0 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile-photo {
+  margin-bottom: 24px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.full-name {
+  font-variant: small-caps;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.headline {
+  letter-spacing: 0.04em;
+}
+
+/* Site footer */
+.site-footer {
+  text-align: center;
+  padding: 8px 0 16px;
+}
+
+/* section general styling */
+section > .title {
+  font-weight: 500;
+  padding: 1em 0;
+  margin: 0;
+}
+
+section {
+  border-bottom: solid lightgray 0.02px;
+  border-radius: 3px;
+
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+
+  margin: 0 -0.5rem 1rem;
+  padding: 0 1rem;
+}
+
+.profile-photo {
+  align-self: flex-end;
+}
+
+.full-name {
+  margin-top: -171px;
+}
+
+/* section: About */
+.profile-links-wrapper {
+  border-top: 1px solid #cccccc;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  padding-top: 16px;
+}
+
+.profile-links > *:not(:last-child) {
+  margin-right: 16px;
+  min-height: 32px;
+}
+
+.profile-links .social-linkedin {
+  background: transparent url(/assets/linkedin.png) 0 0 no-repeat scroll;
+  background-size: 32px 32px;
+  padding-left: 32px;
+}
+
+/* section: Libraries */
+.libraries ul {
+  column-count: 2;
+}
+
+/* section: Experience */
+.experience ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  margin-bottom: 16px;
+}
+
+.experience-entry:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 16px;
+}
+
+.experience-entry .company-logo {
+  text-align: left;
+}
+
+.experience-entry .job-description {
+  grid-row: 2;
+  grid-column: 2/4;
+}
+
+.experience-entry .hiring-period {
+  font-size: 21px;
+  font-variant: small-caps;
+  margin-right: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.experience-entry .job-description {
+  grid-row: 2;
+}
+
+.experience-entry .job-description li {
+  margin-bottom: 8px;
+}
+
+.experience-entry .job-technologies {
+  grid-column: 2/4;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.experience-entry ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* section: certifications */
+.certification-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+}
+
+.certification-entry img {
+  grid-column: 1;
+}
+
+.certification-entry > .content {
+  grid-column: 2/4;
+}
+
+.certifications ul.list-unstyled {
+  margin-top: initial;
+}
+
+@media all and (max-width: 599px) {
+  .experience-entry .job-position {
+    grid-column: 2 / 4;
+  }
+
+  .experience-entry .hiring-period {
+    grid-row: 2;
+    grid-column: 1/4;
+    margin-bottom: 16px;
+  }
+
+  .experience-entry .job-description {
+    grid-row: 3;
+    grid-column: 1 / 4;
+  }
+
+  .experience-entry .job-technologies {
+    grid-row: 4;
+    grid-column: 1 / 4;
+  }
+
+  .certification-entry > * {
+    grid-column: 1/4;
+  }
+
+  .profile-photo {
+    width: 75px;
+  }
+}
+
+@media all and (max-width: 680px) {
+  .site-header {
+    position: static;
+  }
+
+  .profile-photo {
+    align-self: flex-start;
+    box-shadow: none;
+  }
+
+  .full-name {
+    margin-top: 0;
+  }
+}
