@@ -226,10 +226,6 @@ section {
   grid-column: 2/4;
 }
 
-.certifications ul.list-unstyled {
-  margin-top: initial;
-}
-
 @media all and (max-width: 599px) {
   .experience-entry .job-position {
     grid-column: 2 / 4;
