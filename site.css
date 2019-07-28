@@ -144,12 +144,6 @@ section {
   min-height: 32px;
 }
 
-.profile-links .social-linkedin {
-  background: transparent url(/assets/linkedin.png) 0 0 no-repeat scroll;
-  background-size: 32px 32px;
-  padding-left: 32px;
-}
-
 /* section: Libraries */
 .libraries ul {
   column-count: 2;
