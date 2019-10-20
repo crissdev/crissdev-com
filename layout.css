@@ -35,6 +35,10 @@ footer {
   margin-top: 1rem !important;
 }
 
+.ml-auto {
+  margin-left: auto !important;
+}
+
 .mr-auto {
   margin-right: auto !important;
 }

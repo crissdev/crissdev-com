@@ -1,12 +1,22 @@
-:root {
+html {
+  --primary-color: #222831;
+  --secondary-color: #393e46;
+  --border-color: #595a5c;
+  --text-color: #eeeeee;
+  --link-color: #05e1bd;
+  --link-active-color: #06b99b;
+
+  color: #eeeeee;
+  color: var(--text-color);
+
   box-sizing: border-box;
-  color: #222222;
-  background-color: #f2f2f2;
   font: normal normal normal 18px/150% 'Alegreya Sans', sans-serif;
 }
 
 body {
   margin: 0;
+  padding-top: 45px;
+  background-color: #222831;
 }
 
 *,
@@ -17,13 +27,19 @@ body {
 
 a {
   text-decoration-line: none;
-  color: rgb(160, 20, 20);
+  color: #05e1bd;
+  color: var(--link-color);
 }
 
-a:hover {
-  color: rgb(112, 16, 16);
+a:hover,
+a:active,
+a:focus {
+  color: #06b99b;
+  color: var(--link-active-color);
   text-decoration-style: solid;
   text-decoration-line: underline;
+  outline: 1px dotted #05e1bd;
+  outline: 1px dotted var(--link-active-color);
 }
 
 /* Component: Chip List*/
@@ -37,8 +53,11 @@ a:hover {
 .chip-list > * {
   margin-right: 8px;
   margin-bottom: 8px;
-  background-color: #ececec;
-  border: solid 1px #d3d3d3;
+  background-color: #222831;
+  background-color: var(--primary-color);
+  border: solid 1px transparent;
+  border-image: linear-gradient(108.7deg, rgba(34, 219, 231, 1) -0.9%, rgba(52, 118, 246, 1) 88.7%);
+  border-image-slice: 1;
   border-radius: 3px;
   padding: 2px 8px;
   font-variant: small-caps;
@@ -61,12 +80,24 @@ a:hover {
   padding: 0.8rem 0;
   margin-bottom: 1.5rem;
 
-  background-color: #1976d2;
-  color: white;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(5, 232, 186, 1) 0%,
+    rgba(8, 126, 225, 1) 90%
+  );
+  background-color: rgba(5, 232, 186, 1);
+  color: #393e46;
+  color: var(--secondary-color);
 
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
   position: sticky;
   top: 0px;
+
+  max-width: 50em;
+  margin: 0 auto;
+
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 
 .site-header .content {
@@ -75,24 +106,21 @@ a:hover {
   padding: 0 1rem;
 
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .profile-photo {
-  margin-bottom: 24px;
-  border-radius: 3px;
+  border-radius: 50%;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
 }
 
 .full-name {
   font-variant: small-caps;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   margin-bottom: 0.5rem;
-}
-
-.headline {
-  letter-spacing: 0.04em;
 }
 
 /* Site footer */
@@ -109,27 +137,42 @@ section > .title {
 }
 
 section {
-  border-bottom: solid lightgray 0.02px;
   border-radius: 3px;
+  border-bottom: 1px solid #595a5c;
+  border-bottom: 1px solid var(--border-color);
 
-  background-color: white;
+  background-color: #393e46;
+  background-color: var(--secondary-color);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 
   margin: 0 -0.5rem 1rem;
   padding: 0 1rem;
 }
 
-.profile-photo {
-  align-self: flex-end;
-}
-
-.full-name {
-  margin-top: -171px;
-}
-
 /* section: About */
+.about {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.about .emphasis {
+  color: #05e1bd;
+  color: var(--link-color);
+}
+
 .profile-links-wrapper {
   border-top: 1px solid #cccccc;
+}
+
+.profile-links-wrapper .icon {
+  width: 32px;
+  height: 32px;
+  fill: #05e1bd;
+}
+
+.profile-links-wrapper a:hover svg.icon {
+  fill: #06b99b;
+  fill: var(--link-active-color);
 }
 
 .profile-links {
@@ -157,6 +200,9 @@ section {
 }
 
 .experience-entry {
+  display: -ms-grid;
+  -ms-grid-columns: 80px 1fr auto;
+
   display: grid;
   grid-template-columns: 80px 1fr auto;
   margin-bottom: 16px;
@@ -168,15 +214,42 @@ section {
 }
 
 .experience-entry .company-logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+
+  grid-row: 1;
+  grid-column: 1;
   text-align: left;
 }
 
+.experience-entry .company-logo img {
+  border-radius: 3px;
+}
+
 .experience-entry .job-description {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+
   grid-row: 2;
   grid-column: 2/4;
 }
 
+.experience-entry .job-position {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+
+  grid-row: 1;
+  grid-column: 2;
+}
+
 .experience-entry .hiring-period {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+
+  grid-row: 1;
+  grid-column: 3;
+
   font-size: 21px;
   font-variant: small-caps;
   margin-right: 16px;
@@ -187,6 +260,8 @@ section {
 }
 
 .experience-entry .job-description {
+  -ms-grid-row: 2;
+
   grid-row: 2;
 }
 
@@ -195,7 +270,13 @@ section {
 }
 
 .experience-entry .job-technologies {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+
+  grid-row: 3;
   grid-column: 2/4;
+
   display: flex;
   flex-wrap: wrap;
 }
@@ -206,43 +287,86 @@ section {
   padding: 0;
 }
 
+.astronaut {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  width: 100px;
+}
+
 /* section: certifications */
 .certification-entry {
+  display: -ms-grid;
+  -ms-grid-columns: 80px 1fr auto;
+
   display: grid;
   grid-template-columns: 80px 1fr auto;
 }
 
 .certification-entry img {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-row-align: start;
+
+  grid-row: 1;
   grid-column: 1;
+  border-radius: 3px;
 }
 
 .certification-entry > .content {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+
+  grid-row: 1;
   grid-column: 2/4;
 }
 
 @media all and (max-width: 599px) {
   .experience-entry .job-position {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+
     grid-column: 2 / 4;
   }
 
   .experience-entry .hiring-period {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+
     grid-row: 2;
     grid-column: 1/4;
     margin-bottom: 16px;
   }
 
   .experience-entry .job-description {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+
     grid-row: 3;
     grid-column: 1 / 4;
   }
 
   .experience-entry .job-technologies {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+
     grid-row: 4;
     grid-column: 1 / 4;
   }
 
   .certification-entry > * {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+
     grid-column: 1/4;
+  }
+
+  .full-name {
+    font-size: 1.8rem;
   }
 
   .profile-photo {
@@ -256,11 +380,21 @@ section {
   }
 
   .profile-photo {
-    align-self: flex-start;
     box-shadow: none;
   }
 
   .full-name {
     margin-top: 0;
+  }
+}
+
+@media all and (max-width: 916px) {
+  .site-header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  body {
+    padding-top: 0;
   }
 }
