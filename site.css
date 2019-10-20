@@ -38,6 +38,9 @@ a:focus {
   color: var(--link-active-color);
   text-decoration-style: solid;
   text-decoration-line: underline;
+}
+
+a:focus {
   outline: 1px dotted #05e1bd;
   outline: 1px dotted var(--link-active-color);
 }
