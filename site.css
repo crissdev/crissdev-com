@@ -1,6 +1,6 @@
 html {
   --primary-color: #222831;
-  --secondary-color: #393e46;
+  --secondary-color: #363b43;
   --border-color: #595a5c;
   --text-color: #eeeeee;
   --link-color: #05e1bd;
@@ -159,8 +159,7 @@ section {
 }
 
 .about .emphasis {
-  color: #05e1bd;
-  color: var(--link-color);
+  color: #07e3e9;
 }
 
 .profile-links-wrapper {
