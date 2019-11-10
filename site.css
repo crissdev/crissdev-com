@@ -45,6 +45,19 @@ a:focus {
   outline: 1px dotted var(--link-active-color);
 }
 
+/* Component: Pretty list */
+ul.list-pretty {
+  list-style: none;
+}
+
+ul.list-pretty li {
+  padding-left: 24px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIyMyIgdmlld0JveD0iMCAwIDIzIDIzIj4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiM1Q0M3QzciIHN0cm9rZS13aWR0aD0iMiI+CiAgICA8Y2lyY2xlIGN4PSIxMS41IiBjeT0iMTEuNSIgcj0iMTAuNSIvPgogICAgPHBvbHlsaW5lIHBvaW50cz0iNy41IDEyLjUgMTAuNSAxNSAxNiA4Ii8+CiAgPC9nPgo8L3N2Zz4K)
+    no-repeat;
+  background-position-y: 6px;
+  background-size: 14px 14px;
+}
+
 /* Component: Chip List*/
 
 .chip-list {
